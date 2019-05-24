@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <DebugType>full</DebugType>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyCopyRightAttribute>false</GenerateAssemblyCopyRightAttribute>
+    <AssemblyName>ChilliSource.Cloud.ImageSharp</AssemblyName>
+    <RootNamespace>ChilliSource.Cloud.ImageSharp</RootNamespace>
+    <Description>ImageSharp adapter for ChilliSource.Cloud</Description>
+    <Company>BlueChilli Technology Pty Ltd</Company>
+    <SourceLinkUrl>https://github.com/BlueChilli/ChilliSource.Cloud.ImageSharp/</SourceLinkUrl>
+    <RepositoryUrl>https://github.com/BlueChilli/ChilliSource.Cloud.ImageSharp</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/BlueChilli/ChilliSource.Cloud.ImageSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>BlueChilli Technology</Authors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+    <DocumentationFile>bin\Release\net461\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
+    <DocumentationFile>bin\Release\net462\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">    
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />    
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChilliSource.Cloud.Core" Version="2.0.0-alpha0073" />
+    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.0-beta0007" />
+  </ItemGroup>
+</Project>

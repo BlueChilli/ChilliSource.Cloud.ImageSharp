@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChilliSource.Cloud.ImageSharp", "ChilliSource.Cloud.ImageSharp\ChilliSource.Cloud.ImageSharp.csproj", "{FFB36CD6-D8C2-4F7A-82F5-B855948FED90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChilliSource.Cloud.ImageSharp.Tests", "ChilliSource.Cloud.ImageSharp.Tests\ChilliSource.Cloud.ImageSharp.Tests.csproj", "{7FB427FC-CA1D-43C7-8C7F-03867E7DC8F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFB36CD6-D8C2-4F7A-82F5-B855948FED90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB36CD6-D8C2-4F7A-82F5-B855948FED90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB36CD6-D8C2-4F7A-82F5-B855948FED90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB36CD6-D8C2-4F7A-82F5-B855948FED90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB427FC-CA1D-43C7-8C7F-03867E7DC8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB427FC-CA1D-43C7-8C7F-03867E7DC8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB427FC-CA1D-43C7-8C7F-03867E7DC8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB427FC-CA1D-43C7-8C7F-03867E7DC8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45
+		SolutionGuid = {5B7FD3FC-C8BC-424A-85E1-96C73818CBB3}
+	EndGlobalSection
+EndGlobal

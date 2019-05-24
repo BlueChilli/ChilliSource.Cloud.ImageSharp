@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>ChilliSource.Cloud.ImageSharp</id>
+    <version>$version$</version>
+    <title>ChilliSource Cloud ImageSharp</title>
+    <description>ImageSharp adapter for ChilliSource.Cloud framework</description>
+    <authors>$authors$</authors>
+    <owners>$owners$</owners>
+    <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+    <copyright>$copyright$</copyright>
+    <projectUrl>$projectUrl$</projectUrl>
+    <licenseUrl>$licenceUrl$</licenseUrl>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+    <tags>$tags$</tags>
+  </metadata>  
+</package>

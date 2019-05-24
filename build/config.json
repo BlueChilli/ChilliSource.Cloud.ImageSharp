@@ -1,0 +1,14 @@
+{
+	"productName" : "ChilliSource Cloud ImageSharp",
+	"projectName" : "ChilliSource.Cloud.ImageSharp",
+	"githubOwner": "BlueChilli",
+	"githubRepository": "ChilliSource.Cloud.ImageSharp",
+	"packageWhiteList": ["ChilliSource.Cloud.ImageSharp"],
+	"solutionFile" : "../src/ChilliSource.Cloud.ImageSharp.sln",
+  "tags": [ "ChilliSource", "ChilliSource Cloud ImageSharp" ],
+	"authors" : ["Blue Chilli Technology Pty Ltd"],
+	"copyright" : "Copyright Blue Chilli Technology Pty Ltd 2017",
+	"iconUrl": "https://avatars0.githubusercontent.com/u/5924219?v=3&s=200",
+	"testProjectPath": "../src/ChilliSource.Cloud.ImageSharp.Tests/ChilliSource.Cloud.ImageSharp.Tests.csproj",
+	"nuspecRootPath" : "../"
+}
