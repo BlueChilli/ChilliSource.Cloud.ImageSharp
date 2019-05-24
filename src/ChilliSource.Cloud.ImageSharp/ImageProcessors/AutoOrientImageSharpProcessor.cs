@@ -1,0 +1,46 @@
+﻿using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Processing.Processors.Transforms;
+using SixLabors.ImageSharp.Web;
+using SixLabors.ImageSharp.Web.Commands;
+using SixLabors.ImageSharp.Web.Processors;
+using SixLabors.Primitives;
+
+namespace ChilliSource.Cloud.ImageSharp
+{
+    /// <summary>
+    /// Allows auto orienting images.
+    /// </summary>
+    public class AutoOrientImageSharpProcessor : IImageWebProcessor
+    {
+        /// <summary>
+        /// The command constant for auto orienting.
+        /// </summary>
+        public const string AutoOrient = "autoorient";
+
+        private static readonly IEnumerable<string> processorCommands = new[] { AutoOrient };
+
+        /// <inheritdoc/>
+        public IEnumerable<string> Commands { get; } = processorCommands;
+
+        /// <inheritdoc/>
+        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands)
+        {
+            var parser = CommandParser.Instance;
+            var autoOrient = GetAutoOrient(commands, parser);
+
+            if (autoOrient)
+            {
+                image.Image.Mutate(context => context.AutoOrient());
+            }
+
+            return image;
+        }
+
+        private static bool GetAutoOrient(IDictionary<string, string> commands, CommandParser parser)
+        {
+            return parser.ParseValue<bool>(commands.GetValueOrDefault(AutoOrient));
+        }
+    }
+}
