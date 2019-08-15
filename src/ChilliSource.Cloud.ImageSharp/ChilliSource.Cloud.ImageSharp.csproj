@@ -16,18 +16,7 @@
     <RepositoryUrl>https://github.com/BlueChilli/ChilliSource.Cloud.ImageSharp</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/BlueChilli/ChilliSource.Cloud.ImageSharp/blob/master/LICENSE</PackageLicenseUrl>
     <Authors>BlueChilli Technology</Authors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
-    <DocumentationFile>bin\Release\net461\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
-    <DocumentationFile>bin\Release\net462\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\ChilliSource.Cloud.ImageSharp.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">    
