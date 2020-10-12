@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.Extensions.Logging;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Processing.Processors.Transforms;
 using SixLabors.ImageSharp.Web;
 using SixLabors.ImageSharp.Web.Commands;
 using SixLabors.ImageSharp.Web.Processors;
-using SixLabors.Primitives;
 
 namespace ChilliSource.Cloud.ImageSharp
 {
@@ -25,10 +25,9 @@ namespace ChilliSource.Cloud.ImageSharp
         public IEnumerable<string> Commands { get; } = processorCommands;
 
         /// <inheritdoc/>
-        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands)
+        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
         {
-            var parser = CommandParser.Instance;
-            var autoOrient = GetAutoOrient(commands, parser);
+            var autoOrient = GetAutoOrient(commands, parser, culture);
 
             if (autoOrient)
             {
@@ -38,9 +37,10 @@ namespace ChilliSource.Cloud.ImageSharp
             return image;
         }
 
-        private static bool GetAutoOrient(IDictionary<string, string> commands, CommandParser parser)
+        private static bool GetAutoOrient(IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
         {
-            return parser.ParseValue<bool>(commands.GetValueOrDefault(AutoOrient));
+            return parser.ParseValue<bool>(commands.GetValueOrDefault(AutoOrient), culture);
         }
+
     }
 }

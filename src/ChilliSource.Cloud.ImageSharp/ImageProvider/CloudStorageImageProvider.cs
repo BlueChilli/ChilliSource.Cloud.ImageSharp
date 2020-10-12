@@ -48,6 +48,8 @@ namespace ChilliSource.Cloud.ImageSharp
 
         public IDictionary<string, string> Settings { get; set; } = new Dictionary<string, string>();
 
+        public ProcessingBehavior ProcessingBehavior => ProcessingBehavior.CommandOnly;
+
         protected bool IsAProviderMatch(HttpContext context)
         {
             return context.Request.Path.StartsWithSegments(_pathPrefix);

@@ -25,18 +25,18 @@ namespace ChilliSource.Cloud.ImageSharp
             _metadata = metadata;
         }
 
-        public Task<ImageMetaData> GetMetaDataAsync()
+        public Task<ImageMetadata> GetMetaDataAsync()
         {
             CacheControlHeaderValue cacheControl = null;
             CacheControlHeaderValue.TryParse(_metadata.CacheControl, out cacheControl);
 
-            var metadata = new ImageMetaData(
+            var metadata = new ImageMetadata(
                 _metadata.LastModifiedUtc,
-                _metadata.ContentType,
-                cacheControl?.MaxAge ?? TimeSpan.MinValue
+                cacheControl?.MaxAge ?? TimeSpan.MinValue,
+                _metadata.ContentLength
             );
 
-            return Task.FromResult<ImageMetaData>(metadata);
+            return Task.FromResult<ImageMetadata>(metadata);
         }
 
         public async Task<Stream> OpenReadAsync()
@@ -48,5 +48,6 @@ namespace ChilliSource.Cloud.ImageSharp
 
             return response.Stream;
         }
+
     }
 }
