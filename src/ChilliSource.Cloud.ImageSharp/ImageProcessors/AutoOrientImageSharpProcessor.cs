@@ -25,7 +25,7 @@ namespace ChilliSource.Cloud.ImageSharp
         public IEnumerable<string> Commands { get; } = processorCommands;
 
         /// <inheritdoc/>
-        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
+        public FormattedImage Process(FormattedImage image, ILogger logger, CommandCollection commands, CommandParser parser, CultureInfo culture)
         {
             var autoOrient = GetAutoOrient(commands, parser, culture);
 
@@ -37,10 +37,14 @@ namespace ChilliSource.Cloud.ImageSharp
             return image;
         }
 
-        private static bool GetAutoOrient(IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
+        private static bool GetAutoOrient(CommandCollection commands, CommandParser parser, CultureInfo culture)
         {
             return parser.ParseValue<bool>(commands.GetValueOrDefault(AutoOrient), culture);
         }
 
+        public bool RequiresTrueColorPixelFormat(CommandCollection commands, CommandParser parser, CultureInfo culture)
+        {
+            return false; //TODO check
+        }
     }
 }

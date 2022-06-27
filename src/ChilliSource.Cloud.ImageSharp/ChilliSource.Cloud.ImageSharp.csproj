@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <DebugType>full</DebugType>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
@@ -29,6 +29,6 @@
 
   <ItemGroup>
     <PackageReference Include="ChilliSource.Cloud.Core" Version="2.0.0-alpha0093" />
-    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.0" />    
+    <PackageReference Include="SixLabors.ImageSharp.Web" Version="2.0.1" />    
   </ItemGroup>
 </Project>

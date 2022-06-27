@@ -25,7 +25,7 @@ namespace ChilliSource.Cloud.ImageSharp
         /// <inheritdoc/>
         public IEnumerable<string> Commands { get; } = processorCommands;
 
-        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
+        public FormattedImage Process(FormattedImage image, ILogger logger, CommandCollection commands, CommandParser parser, CultureInfo culture)
         {
             var degrees = GetRotateDegrees(commands, parser, culture);
 
@@ -37,11 +37,15 @@ namespace ChilliSource.Cloud.ImageSharp
             return image;
         }
 
-        private static float? GetRotateDegrees(IDictionary<string, string> commands, CommandParser parser, CultureInfo culture)
+        private static float? GetRotateDegrees(CommandCollection commands, CommandParser parser, CultureInfo culture)
         {
             var value = commands.GetValueOrDefault(Rotate);
             return string.IsNullOrEmpty(value) ? (float?)null : parser.ParseValue<float>(value, culture);
         }
 
+        public bool RequiresTrueColorPixelFormat(CommandCollection commands, CommandParser parser, CultureInfo culture)
+        {
+            return false; //TODO check
+        }
     }
 }
