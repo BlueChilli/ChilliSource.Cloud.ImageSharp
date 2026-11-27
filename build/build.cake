@@ -137,7 +137,8 @@ var artifactDirectory = "./artifacts/";
 var packageWhitelist = config.Value<JArray>("packageWhiteList").Values<string>();
 
 var buildSolution = config.Value<string>("solutionFile");
-var configuration = "Release";
+// Release by default. The pipeline passes Debug until the Six Labors key validates: Debug builds only warn on a bad key.
+var configuration = Argument("configuration", "Release");
 // Macros
 Func<string> GetMSBuildLoggerArguments = () => {
     return BuildSystem.TeamCity.IsRunningOnTeamCity ? EnvironmentVariable("MsBuildLogger"): null;
