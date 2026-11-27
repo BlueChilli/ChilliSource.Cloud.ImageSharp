@@ -196,36 +196,33 @@ Action<string> build = (solution) =>
     Information("Building {0}", solution);
 	using(BuildBlock("Build")) 
 	{			
-		MSBuild(solution, settings => { 
-				settings
+		// dotnet msbuild, not Visual Studio's: the .NET 10 SDK needs MSBuild 18, newer than VS 2022 ships.
+		var settings = new DotNetCoreMSBuildSettings()
 				.SetConfiguration(configuration)
 	            .WithTarget("restore;pack")
 		        .WithProperty("PackageOutputPath",  MakeAbsolute(Directory(artifactDirectory)).ToString())
     			.WithProperty("NoWarn", "1591") // ignore missing XML doc warnings
 				.WithProperty("TreatWarningsAsErrors", treatWarningsAsErrors.ToString())
 			    .WithProperty("Version", nugetVersion.ToString())
-			    .WithProperty("Authors",  "\"" + string.Join(" ", authors) + "\"")
-			    .WithProperty("Copyright",  "\"" + copyright + "\"")
-			    .WithProperty("PackageProjectUrl",  "\"" + githubUrl + "\"")
-			    .WithProperty("PackageIconUrl",  "\"" + iconUrl + "\"")
-			    .WithProperty("PackageLicenseUrl",  "\"" + licenceUrl + "\"")
-			    .WithProperty("PackageTags",  "\"" + string.Join(" ", tags) + "\"")
-			    .WithProperty("PackageReleaseNotes",  "\"" +  string.Format("{0}/releases", githubUrl) + "\"")
-			  	.SetVerbosity(Verbosity.Minimal)
-				.SetNodeReuse(false);
-				
-				settings.ToolVersion = MSBuildToolVersion.VS2022;
+			    .WithProperty("Authors",  string.Join(" ", authors))
+			    .WithProperty("Copyright",  copyright)
+			    .WithProperty("PackageProjectUrl",  githubUrl)
+			    .WithProperty("PackageIconUrl",  iconUrl)
+			    .WithProperty("PackageLicenseUrl",  licenceUrl)
+			    .WithProperty("PackageTags",  string.Join(" ", tags))
+			    .WithProperty("PackageReleaseNotes",  string.Format("{0}/releases", githubUrl));
 
-				var msBuildLogger = GetMSBuildLoggerArguments();
-			
-				if(!string.IsNullOrEmpty(msBuildLogger)) 
-				{
-					Information("Using custom MSBuild logger: {0}", msBuildLogger);
-					settings.ArgumentCustomization = arguments =>
-					arguments.Append(string.Format("/logger:{0}", msBuildLogger));
-				}
-			});
-    };		
+		var msBuildLogger = GetMSBuildLoggerArguments();
+
+		if(!string.IsNullOrEmpty(msBuildLogger))
+		{
+			Information("Using custom MSBuild logger: {0}", msBuildLogger);
+			settings.ArgumentCustomization = arguments =>
+			arguments.Append(string.Format("/logger:{0}", msBuildLogger));
+		}
+
+		DotNetCoreMSBuild(solution, settings);
+    };
 
 };
 
